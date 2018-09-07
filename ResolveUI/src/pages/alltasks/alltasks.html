@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        All Tasks
+      </ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only (click)="openModal()">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+      <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content 
+          pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+      <ion-item-sliding *ngFor="let allTask of allTasks">
+      <ion-item>
+        <span>
+        <span class="task">{{allTask.task}}</span>
+        <span class="exp">+{{allTask.exp}} EXP</span>
+        <span class="frequency">{{allTask.frequency}}/WEEK</span>
+        </span>
+      </ion-item>
+      <ion-item-options side="right">
+          <button ion-button color="secondary" (click)="confirmAssign(allTask)">Assign</button>
+          <button ion-button color="danger" (click)="confirmDelete(allTask)">Delete</button>
+        </ion-item-options>
+  </ion-item-sliding>
+  </ion-list>
+
+  </ion-content>
+  

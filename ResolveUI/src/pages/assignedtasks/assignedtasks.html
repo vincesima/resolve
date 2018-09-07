@@ -1,0 +1,130 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title text-center>
+        Resolve
+      </ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="openModal()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content>
+    <div (click) = "toggle()">
+      <br>
+      <ion-list>
+          <ion-grid no-padding>
+            <ion-row >
+              <ion-col col-4 text-center>
+              <span class="toolbar-stats">Total Exp: {{user?.totalExp}}</span>
+              </ion-col>
+              <ion-col col-4 text-center>
+              <span class="toolbar-complete">Completed: {{user?.tasksCompleted}}</span>
+            </ion-col>
+              <ion-col col-4 text-center>
+              <span class="toolbar-missed">Missed: {{user?.tasksMissed}}</span>
+            </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col col-1 text-right><span class="toolbar-exp">{{user?.level}}</span></ion-col>
+          <ion-col col-10><progress-bar [progress]="(user?.expThisLevel/user?.totalExpForNextLevelUp)*100 | round" [levelup]="(user?.totalExpForNextLevelUp - user?.expThisLevel) + 'exp'" [completed] = "user?.expThisLevel + 'exp'"></progress-bar></ion-col>
+          <ion-col col-1 text-left><span class="toolbar-exp">{{user?.level + 1}}</span></ion-col>
+        </ion-row>
+          </ion-grid>
+      </ion-list>
+      </div>
+        <ion-list *ngIf="expanded" no-lines class="bar-container">
+            <ion-item no-padding>
+                <ion-grid no-padding>
+                            <ion-row >
+                              <ion-col col-4 text-center>
+                              </ion-col>
+                              <ion-col col-4 text-center>
+                              <span class="toolbar-complete">Strength</span>
+                            </ion-col>
+                              <ion-col col-4 text-center>
+                              <span class="toolbar-missed">Exp: {{user?.strengthExp}}</span>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row >
+                          <ion-col col-1 text-right><span class="toolbar-exp">{{user?.strengthLevel}}</span></ion-col>
+                          <ion-col col-10><subprogress-bar [progress]="(user?.strengthExpThisLevel/user?.strengthExpForNextLevelUp)*100 | round" [levelup]="(user?.strengthExpForNextLevelUp - user?.strengthExpThisLevel) + 'exp'" [completed] = "user?.strengthExpThisLevel + 'exp'"></subprogress-bar></ion-col>
+                          <ion-col col-1 text-left><span class="toolbar-exp">{{user?.strengthLevel + 1}}</span></ion-col>
+                        </ion-row>
+                    </ion-grid>
+            </ion-item>
+            <ion-item no-padding>
+                    <ion-grid no-padding>
+                            <ion-row >
+                              <ion-col col-4 text-center>
+                              </ion-col>
+                              <ion-col col-4 text-center>
+                              <span class="toolbar-complete">Intelligence</span>
+                            </ion-col>
+                              <ion-col col-4 text-center>
+                              <span class="toolbar-missed">Exp: {{user?.intelligenceExp}}</span>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row >
+                          <ion-col col-1 text-right><span class="toolbar-exp">{{user?.intelligenceLevel}}</span></ion-col>
+                          <ion-col col-10><subprogress-bar [progress]="(user?.intelligenceExpThisLevel/user?.intelligenceExpForNextLevelUp)*100 | round" [levelup]="(user?.intelligenceExpForNextLevelUp - user?.intelligenceExpThisLevel) + 'exp'" [completed] = "user?.intelligenceExpThisLevel + 'exp'"></subprogress-bar></ion-col>
+                          <ion-col col-1 text-left><span class="toolbar-exp">{{user?.intelligenceLevel + 1}}</span></ion-col>
+                        </ion-row>
+                    </ion-grid>
+            </ion-item>
+            <ion-item no-padding>
+                    <ion-grid no-padding>
+                            <ion-row >
+                              <ion-col col-4 text-center>
+                              </ion-col>
+                              <ion-col col-4 text-center>
+                              <span class="toolbar-complete">Dexterity</span>
+                            </ion-col>
+                              <ion-col col-4 text-center>
+                              <span class="toolbar-missed">Exp: {{user?.dexterityExp}}</span>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row >
+                          <ion-col col-1 text-right><span class="toolbar-exp">{{user?.dexterityLevel}}</span></ion-col>
+                          <ion-col col-10><subprogress-bar [progress]="(user?.dexterityExpThisLevel/user?.dexterityExpForNextLevelUp)*100 | round" [levelup]="(user?.dexterityExpForNextLevelUp - user?.dexterityExpThisLevel) + 'exp'" [completed] = "user?.dexterityExpThisLevel + 'exp'"></subprogress-bar></ion-col>
+                          <ion-col col-1 text-left><span class="toolbar-exp">{{user?.dexterityLevel + 1}}</span></ion-col>
+                        </ion-row>
+                    </ion-grid>        
+                </ion-item>
+            <ion-item no-padding>
+                    <ion-grid no-padding>
+                            <ion-row >
+                              <ion-col col-4 text-center>
+                              </ion-col>
+                              <ion-col col-4 text-center>
+                              <span class="toolbar-complete">Constitution</span>
+                            </ion-col>
+                              <ion-col col-4 text-center>
+                              <span class="toolbar-missed">Exp: {{user?.constitutionExp}}</span>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row >
+                          <ion-col col-1 text-right><span class="toolbar-exp">{{user?.constitutionLevel}}</span></ion-col>
+                          <ion-col col-10><subprogress-bar [progress]="(user?.constitutionExpThisLevel/user?.constitutionExpForNextLevelUp)*100 | round" [levelup]="(user?.constitutionExpForNextLevelUp - user?.constitutionExpThisLevel) + 'exp'" [completed] = "user?.constitutionExpThisLevel + 'exp'"></subprogress-bar></ion-col>
+                          <ion-col col-1 text-left><span class="toolbar-exp">{{user?.constitutionLevel + 1}}</span></ion-col>
+                        </ion-row>
+                    </ion-grid>  
+            </ion-item>
+        </ion-list>
+
+
+<ion-list no-lines>
+    <ion-item-sliding *ngFor="let assignedTask of assignedTasks">
+    <ion-item [ngStyle]="{'background-color': findBgColor(this.assignedTask.deadline)}">
+        <span>           
+            <div class="timeremaining" [ngStyle]="{'color': findTextColor(this.assignedTask.deadline)}">{{timeRemaining(calcTime(this.assignedTask.deadline))}}</div> 
+            <div class="complete" [ngStyle]="{'color': findTextColor(this.assignedTask.deadline)}" (click)="confirmComplete(assignedTask)">Complete</div>
+            <div class="task" [ngStyle]="{'color': findTextColor(this.assignedTask.deadline), 'font-size' : '16px', 'width':'15rem'}">{{assignedTask.task}}</div>
+            <div class="exp">+{{assignedTask.exp}} EXP</div>
+            </span>
+    </ion-item>
+</ion-item-sliding>
+</ion-list>
+</ion-content>

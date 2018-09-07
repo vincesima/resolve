@@ -1,0 +1,95 @@
+
+<ion-header>
+  <ion-toolbar>
+      <ion-title>
+        Create New Task
+        </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="dismiss()">
+        <span showWhen="ios">Back</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+      <ion-item>
+          <ion-label>Task</ion-label>
+          <ion-input type="text" [(ngModel)]="task.task"></ion-input>        
+        </ion-item>
+        <ion-item>
+            <ion-label>Strength Exp</ion-label>
+            <ion-select [(ngModel)]="task.strengthExp">
+                <ion-option value="0">0</ion-option>
+              <ion-option value="1">1</ion-option>
+              <ion-option value="2">2</ion-option>
+              <ion-option value="3">3</ion-option>
+              <ion-option value="4">4</ion-option>
+
+            </ion-select>
+          </ion-item>
+          <ion-item>
+              <ion-label>Intelligence Exp</ion-label>
+              <ion-select [(ngModel)]="task.intelligenceExp">
+                  <ion-option value="0">0</ion-option>
+                <ion-option value="1">1</ion-option>
+                <ion-option value="2">2</ion-option>
+                <ion-option value="3">3</ion-option>
+                <ion-option value="4">4</ion-option>
+
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Constitution Exp</ion-label>
+                <ion-select [(ngModel)]="task.constitutionExp">
+                  <ion-option value="0">0</ion-option>
+                  <ion-option value="1">1</ion-option>
+                  <ion-option value="2">2</ion-option>
+                  <ion-option value="3">3</ion-option>
+                  <ion-option value="4">4</ion-option>
+                </ion-select>
+              </ion-item>
+              
+            <ion-item>
+                <ion-label>Dexterity Exp</ion-label>
+                <ion-select [(ngModel)]="task.dexterityExp">
+                    <ion-option value="0">0</ion-option>
+                  <ion-option value="1">1</ion-option>
+                  <ion-option value="2">2</ion-option>
+                  <ion-option value="3">3</ion-option>
+                  <ion-option value="4">4</ion-option>
+                </ion-select>
+              </ion-item>
+          <ion-item>
+              <ion-label>Frequency</ion-label>
+              <ion-select [(ngModel)]="task.frequency">
+                <ion-option value="1">1/week</ion-option>
+                <ion-option value="2">2/week</ion-option>
+                <ion-option value="3">3/week</ion-option>
+                <ion-option value="4">4/week</ion-option>
+                <ion-option value="5">5/week</ion-option>
+                <ion-option value="6">6/week</ion-option>
+                <ion-option value="7">7/week</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>Time Limit</ion-label>
+                <ion-select [(ngModel)]="task.timeLimit">
+                  <ion-option value="1">1 day</ion-option>
+                  <ion-option value="2">2 days</ion-option>
+                  <ion-option value="3">3 days</ion-option>
+                  <ion-option value="4">4 days</ion-option>
+                  <ion-option value="5">5 days</ion-option>
+                  <ion-option value="6">6 days</ion-option>
+                  <ion-option value="7">7 days</ion-option>
+                </ion-select>
+              </ion-item>
+
+              <button ion-button full (click) ="submitTask()">Submit</button>
+</ion-list>
+
+  </ion-content>

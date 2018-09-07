@@ -1,0 +1,76 @@
+page-assignedtasks {
+    .exp {
+        font-size: 13px;
+        font-weight: bold;
+        color: rgb(0, 255, 0);
+        padding-top: 4%;
+        padding-right: 4%;
+        float: right;
+
+    }
+
+    .task {
+        font-size: 18px;
+        width: 40%;
+        height: 4.4rem;
+        word-break: break-all;
+        white-space:normal;
+        display: inline-block;
+        vertical-align: middle;
+        padding-left: 4%;
+        padding-top: 3%;
+        color: #ffffff;
+    }
+
+    
+
+    .timeremaining {
+        width: 6rem;
+        height: 4.4rem;
+        padding-top: 4.2%;
+        float: left;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+        color: #fff;
+
+    }
+
+    .complete {
+        width: 6rem;
+        height: 4.4rem;
+        padding-top: 4.2%;
+        float: right;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+        color: #fff;
+
+    }
+
+    .label-md {
+        margin: 0;
+    }
+
+    .toolbar-exp {
+        font-size: 16.5px;
+        font-weight: bold;
+    }
+
+    .toolbar-stats {
+        font-size: 12px;
+        font-weight: bold;
+        padding-left: 10px;
+    }
+
+    .toolbar-complete {
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .toolbar-missed {
+        font-size: 12px;
+        font-weight: bold;
+    }
+    
+}

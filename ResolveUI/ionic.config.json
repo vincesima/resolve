@@ -1,0 +1,7 @@
+{
+  "name": "ResolveUI",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
